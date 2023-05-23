@@ -1,0 +1,68 @@
+<div class="center">
+    <div class="container mb3">
+      <div class="container-fluid">
+        <div mat-dialog-content class="example-container">
+          <div class="container">
+            
+            <form class="example-form" [formGroup]="userblogform"  (ngSubmit)="ProceedSave()"  enctype="multipart/form-data">
+              <div class="example-form-fields">
+                <mat-form-field appearance="outline">
+                    <mat-label>Blog Title</mat-label>
+                    <input matInput placeholder="Blog title" >
+                </mat-form-field>
+               </div>
+  
+              <div formArrayName="blogs">
+                <div *ngFor="let item of blogs.controls; let i=index" [formGroupName]="i">
+                  <div class="row-12">
+                    <div class="col-25">
+                      <input type="file" formControlName="image" (change)="showPreview($event,i)">
+                    </div>
+                    <div class="col-75">                    
+                      <img [src]="imagedata[i]" width="75%" height="75%">
+                    </div>
+                  </div>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Leave a comment</mat-label>
+                    <textarea matInput formControlName="Bloginfo" placeholder="Ex. It makes me feel..."></textarea>
+                  </mat-form-field>
+                  <button mat-raised-button color="warn" type="submit" (click)="Removeitem(i)">Remove Content :- {{i+1}}</button>
+                </div>
+              </div>
+              <div class="jio">
+              <button mat-raised-button color="accent" type="submit" (click)="Addnewrow()">Add New </button>
+              <div style="margin-top: 30px;"> 
+                <form (submit)="addhas()" [formGroup]="hasblogform">
+                  <div class="example-form-fields">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Add Hashtag</mat-label>
+                      <input matInput placeholder="Add hashtag without # Symbol"  formControlName="has">
+                    </mat-form-field>
+                    <button mat-raised-button type="submit"  style="margin-left: 8px;" color="primary">Add</button>
+                  </div>
+                </form>
+          
+              <table class="table table-hover text-center">
+                <thead>
+                  <tr>
+                    <th scope="col">Hashtag's</th>
+                    <th scope="col" colspan="2">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of hasarray; index as userno">
+                    <td>#{{item}}</td>
+                    <td><button  mat-raised-button color="warn" (click)="removelist(userno)">Remove</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+            </div>
+              <button mat-raised-button  color="primary" type="submit" [disabled]="!userblogform.valid">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+  

@@ -1,0 +1,56 @@
+<h2 mat-dialog-title>Followers</h2>
+<mat-dialog-content class="mat-typography" >
+  <div>
+    <div class="text-center" *ngIf="SpinnerActive">
+      <img src="{{Spinner}}" alt="loading">
+    </div>
+    <div  *ngIf="dataloader" class="container-fluid">
+        <table class="table table-borderless" *ngFor="let cm of Follow" >
+            <tbody>
+                <tr>
+                  <td>
+                    <div class="d-flex">
+                      <div class="p-2">
+                        <h3 class="iop" (click)="Usernavigat(cm.U_id,cm.Firstname,cm.surname)" >
+                          <span class="circle" style="font-family: Garamond, serif;" >
+                            {{ cm.Firstname | slice:0:1}}{{cm.surname | slice:0:1}}
+                          </span>
+                            {{cm.Firstname}} {{cm.surname}} 
+                        </h3>  
+                        <div class="p-2" [hidden]="FData.indexOf(cm.U_id) >= 0 ? (HomeUserData._id === cm.U_id ?  true : false) : true" >
+                          <button mat-raised-button color="accent" style="margin-left: 252px;margin-top: -117px;" (click)="UnFollowuser(cm.U_id)">Unfollow</button>
+                        </div>
+                        <div class="p-2" [hidden]="FData.indexOf(cm.U_id)>= 0 ? true : (HomeUserData._id === cm.U_id ?  true :false)">
+                          <button mat-raised-button color="primary" style="margin-left: 252px;margin-top: -117px;"  (click)="Followuser(cm.U_id)">follow</button>  
+                        </div> 
+                      </div>
+
+                    </div>
+                  </td>
+                  <!-- 
+                        <div class="p-2" [hidden]="FData.indexOf(cm.U_id) ? true : false" >
+                          <button mat-raised-button color="accent" style="margin-left: 252px;margin-top: -117px;" (click)="UnFollowuser(cm.U_id)">Unfollow</button>
+                        </div>
+                        <div class="p-2" [hidden]="FData.indexOf(cm.U_id) ? false : true">
+                          <button mat-raised-button color="primary" style="margin-left: 252px;margin-top: -117px;"  (click)="Followuser(cm.U_id)">follow</button>  
+                        </div>
+                   -->
+                  <!-- <td>
+                    <div class="d-flex">
+                      <div class="p-2" [hidden]="FData.indexOf(cm.U_id) ? true : false" >
+                        <button mat-raised-button color="accent" >Unfollow</button>
+                      </div>
+                      <div class="p-2" [hidden]="FData.indexOf(cm.U_id) ? false : true">
+                        <button mat-raised-button color="primary" >follow</button>  
+                      </div>
+                    </div>
+                  </td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

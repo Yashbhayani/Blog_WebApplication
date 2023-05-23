@@ -1,0 +1,48 @@
+<p *ngIf="login_Not_Active" (onload)="checkfiunction()">
+    <mat-toolbar class="mat-toolbar">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/">
+        <mat-icon>message</mat-icon>
+      </button>
+      <span>Blog App</span>
+      <span class="example-spacer"></span>
+    <a mat-flat-button class="mat-flat-button" color="transparent"  routerLink="login">
+      Login
+     </a>
+    <a mat-flat-button class="mat-flat-button" color="transparent"  routerLink="signup">
+      Create new account
+     </a>
+    </mat-toolbar>
+</p>
+
+<p *ngIf="login_Active" (onload)="checkfiunction()">
+    <mat-toolbar class="mat-toolbar">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/">
+        <mat-icon>message</mat-icon>
+      </button>
+      <span routerLink="/">Blog App</span>
+      <span class="example-spacer"></span>
+
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" #ui aria-label="Search" >
+      <button style="margin-right: 10px;" class="btn btn-outline-info" type="submit" (click)="search(ui.value)"><i class="fa fa-search"></i></button>
+    </form>
+    <a mat-flat-button class="mat-flat-button" color="transparent"  routerLink="/addblog">
+        Add Blog
+    </a>
+    <a mat-flat-button class="mat-flat-button" color="transparent"  routerLink="/user">
+     {{UserName}}
+    </a>
+    <a mat-flat-button class="mat-flat-button" color="transparent" (click)="Logout()">
+      Logout
+     </a>
+    </mat-toolbar>
+</p>
+<div>
+  <div class="text-center" *ngIf="SpinnerActive">
+    <img src="{{Spinner}}" alt="loading">
+  </div>
+  <div  *ngIf="dataloader" class="container-fluid">
+      <router-outlet></router-outlet>
+  </div>
+</div>
+

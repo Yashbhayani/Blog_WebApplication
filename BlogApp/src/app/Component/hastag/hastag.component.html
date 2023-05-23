@@ -1,0 +1,26 @@
+<div class="center">
+    <div class="container mb3">
+      <div class="container-fluid">
+        <div class="example-container">
+          <div class="container">
+            <div class="row my-3">
+              <div class="col md-3" *ngFor="let bdata of hasblog; index as userno">
+                <div className="card my-3">
+                  <div class="card" style="width: 18rem;">
+                    <img src="http://localhost:5000/{{bdata.Blog_content[0].image}}" class="card-img-top" alt="..." >
+                    <div class="card-body">
+                      <h2 class="card-title">{{bdata.Blog_Title}}</h2>
+                      <p class="card-text">{{bdata.Blogs_Description | slice:0:50}} <span style="font-weight: bold;">Readmore...</span></p>
+                    </div>
+                    <div class="card-body text-end">
+                      <a routerLink="/blog/{{bdata._id}}" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+              </div>                    
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

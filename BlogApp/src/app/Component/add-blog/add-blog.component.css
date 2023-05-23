@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+.row-12{
+  padding: 10px;
+}
+
+.example-form {
+  min-width: 100%;
+  max-width: 100%;
+  width: 100%;
+}
+.container {
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row-12::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row-11:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
+section {
+  display: table;
+}
+
+.example-container mat-form-field+mat-form-field {
+  margin-left: 8px;
+}
+
+.example-container mat-form-field {
+  width: 100%;
+}
+
+.example-container form {
+  margin-bottom: 20px;
+}
+
+.example-container form>* {
+  margin: 12px 0;
+}
+
+.example-container .mat-radio-button {
+  margin: 0 12px;
+}
+
+.example-form-fields {
+  display: flex;
+  align-items: flex-start;
+}
+
+
+.mat-dialog-actions {
+  display: flex;
+  align-items: flex-start;
+}
+
+.jio button{
+  margin-right: 8px;
+}
+
+a { text-decoration: none; }
+
+
+table {
+  width: 100%;
+}

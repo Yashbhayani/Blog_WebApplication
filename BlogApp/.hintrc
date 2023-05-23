@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "axe/forms": [
+      "default",
+      {
+        "label": "off"
+      }
+    ],
+    "button-type": "off",
+    "no-inline-styles": "off",
+    "axe/text-alternatives": [
+      "default",
+      {
+        "input-image-alt": "off",
+        "image-alt": "off"
+      }
+    ],
+    "axe/name-role-value": [
+      "default",
+      {
+        "button-name": "off"
+      }
+    ],
+    "detect-css-reflows/composite": "off"
+  }
+}

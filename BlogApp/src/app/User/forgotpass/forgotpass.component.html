@@ -1,0 +1,47 @@
+<div class="center">
+    <div class="container mb3" *ngIf="OTPACTIVE">
+        <h3> OTP sent to this mail address {{EMAIL}} </h3>
+        <div mat-dialog-content class="example-container">
+            <form [formGroup]="otpForm">
+                <div class="example-form-fields">
+                    <mat-form-field appearance="outline">
+                        <mat-label>OTP</mat-label>
+                        <input matInput placeholder="OTP" formControlName="OTP">
+                    </mat-form-field>
+                </div>
+            </form>
+        </div>
+        <div mat-dialog-actions [align]="'center'">
+            <button class="btt" mat-raised-button color="primary" (click)="onotpvarification()">Submit</button>
+            <button class="btt" mat-raised-button color="primary" [disabled]="ClickOn" (click)="resendOTP()">{{display}}</button>
+        </div>
+        <div>
+           
+        </div>
+    </div>
+    <div class="container mb3" *ngIf="FORACTIVE">
+        <div class="container-fluid">
+            <h1 mat-dialog-title class="font-effect-outline">Forgot password Form</h1>
+            <div class="example-container">
+                <form [formGroup]="ForForm">
+                    <div class="example-form-fields">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email id" formControlName="Email">
+                    </mat-form-field>
+                    </div>
+                    <div class="example-form-fields">
+                        <mat-form-field appearance="outline">
+                            <mat-label>New Password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </div>
+                </form>
+                <button style="margin-inline-start:10px;" mat-raised-button color="primary" (click)="newpass()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

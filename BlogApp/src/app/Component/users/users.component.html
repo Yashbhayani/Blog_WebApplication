@@ -1,0 +1,53 @@
+<div class="center">
+    <div class="container mb3" >
+      <div class="d-flex justify-content-around text-center">
+        <div class="p-2">
+          <h1><span class="circle" style="font-family: Garamond, serif;">{{ USER.Firstname | slice:0:1}}{{USER.surname | slice:0:1}}</span> {{USER.Firstname}} {{USER.surname}}</h1>
+        </div>
+      </div>
+        <div class="d-flex justify-content-around text-center">
+            <div class="p-2 ">
+                <h2>BlogPost</h2>
+                <h3>{{USER.BlogPost}}</h3>
+            </div>
+            <div class="p-2">                
+                <h2 (click)="openDialog()">Followers</h2>
+                <h3 (click)="openDialog()">{{USER.Followers}}</h3>
+            </div>
+            <div class="p-2">
+                <h2 (click)="openFDialog()">Following</h2>
+                <h3 (click)="openFDialog()">{{USER.Following}}</h3>
+
+            </div>
+        </div>
+        <h2>Email id: - {{USER.Email}}</h2>
+        <h2>Mobile No:- {{USER.Mobile}}</h2>
+    </div>
+</div>
+
+<div class="container" >
+    <div class="row my-3 gap-3" id="bhj">
+      <div class="col md-3" *ngFor="let bdata of BlogsContent; index as userno">
+        <div className="card my-3">
+          <div class="card" style="width: 18rem;">
+            <img src="http://localhost:5000/{{bdata.Blog_content[0].image}}" class="card-img-top" alt="..." >
+            <div class="card-body">
+              <h2 class="card-title">{{bdata.Blog_Title}}</h2>
+              <p class="card-text">{{bdata.Blogs_Description | slice:0:50}} <span style="font-weight: bold;">...</span></p>
+            </div>
+            <div class="card-body text-end">
+              <a routerLink="/blog/{{bdata._id}}" class="btn btn-outline-primary">Readmore</a>
+            </div>
+            <div class="card-body text-start">
+              <button mat-icon-button color="primary" (click)="edit(bdata._id)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn"  (click)="delete(bdata._id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+        </div>
+      </div>                    
+    </div>
+    </div>
+</div>

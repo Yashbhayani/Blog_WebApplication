@@ -1,0 +1,230 @@
+span.circle {
+  background: #e3e3e3;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  color: #6e6e6e;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 40px;
+  margin-inline-end: 5px;
+  text-align: center;
+  inline-size: 40px;
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add a gray background color with some padding */
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 100%;
+}
+
+/* Right column */
+/* .rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+} */
+
+/* Fake image */
+.fakeimg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: #94c0ff; */
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row-12:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  /* text-align: center; */
+  /* background: #ddd; */
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.title{
+  font-family: "Trirong" ,serif;
+  font-size: 30px;
+  text-shadow: 3px 3px 3px #ababab;
+}
+
+
+.kio{
+  background-color: rgb(197, 255, 255);
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 12px;
+  padding: 5px;
+}
+
+a { text-decoration: none; }
+
+
+.example-form {
+  min-width: 100%;
+  max-width: 100%;
+  width: 100%;
+}
+
+.container {
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+section {
+  display: table;
+}
+
+.example-container mat-form-field+mat-form-field {
+  margin-left: 8px;
+}
+
+.example-container mat-form-field {
+  width: 100%;
+}
+
+.example-container form {
+  margin-bottom: 20px;
+}
+
+.example-container form>* {
+  margin: 12px 0;
+}
+
+.example-container .mat-radio-button {
+  margin: 0 12px;
+}
+
+.example-form-fields {
+  display: flex;
+  align-items: flex-start;
+}
+
+
+.mat-dialog-actions {
+  display: flex;
+  align-items: flex-start;
+}
+button {
+  margin-right: 8px;
+}
+
+.container12 {
+  /* border: 2px solid #60ffff; */
+  border-left: 6px solid red;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 13px;
+  margin: 10px 0;
+}
+
+.time-right {
+  float: right;
+  color: #000000;
+}
+
+.time-right12 {
+  float: right;
+  color: #000000;
+}
+
+.container12 .iop{
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container12 img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.container12::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.ex2{
+  background-color:rgb(157, 230, 255);
+  height: 85%;
+  border-radius: 12px;
+  overflow: auto;
+  align-items: center;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.ex1 {
+  background-color: rgb(157, 230, 255);
+  height: 420px;
+  overflow: auto;
+  padding: 12px;
+  align-items: center;
+}
+
+.ex1::-webkit-scrollbar {
+  width: 5px;
+  height: 20px;
+}
+
+
+.ex1::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgb(255, 255, 255); 
+  border-radius: 10px;
+}
+ 
+.ex1::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+}
+
+.ex1::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+}

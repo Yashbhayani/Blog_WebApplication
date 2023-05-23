@@ -1,0 +1,87 @@
+<div class="center">
+  <div class="container mb3">
+    <div class="container-fluid">
+      <div class="example-container">
+        <div class="container">
+          <!--   enctype="multipart/form-data" -->
+          <form class="example-form" [formGroup]="userblogform"  (ngSubmit)="ProceedSave()" enctype="multipart/form-data">
+            <div class="example-form-fields">
+              <mat-form-field appearance="outline">
+                  <mat-label>Blog Title</mat-label>
+                  <input matInput placeholder="Blog title" formControlName="blog_title" >
+              </mat-form-field>
+            
+             </div>
+             <div class="example-form-fields">
+              <mat-form-field appearance="outline">
+                <mat-label>Blog Description</mat-label>
+                <textarea matInput placeholder="Blog title" formControlName="blogs_Description"></textarea>
+              </mat-form-field>
+            </div>
+                <div class="row-12">
+                  <div class="col-25">
+                    <input type="file" formControlName="blogs_image_1" (change)="showPreview_1($event)">
+                  </div>
+                  <div class="col-75">                    
+                    <img [src]="imagedata_1" width="75%" height="75%">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Add Descriptioon</mat-label>
+                    <textarea matInput formControlName="blog_info_1" class="form-control bcontent" placeholder="Ex. It makes me feel..." rows="10" cols="50"></textarea>
+                  </mat-form-field>
+                </div>
+            
+
+                <div class="row-12">
+                  <div class="col-25">
+                    <input type="file" formControlName="blogs_image_2" (change)="showPreview_2($event)">
+                  </div>
+                  <div class="col-75">                    
+                    <img [src]="imagedata_2" width="75%" height="75%">
+                  </div>
+                </div>
+                <div class="form-group">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Add Descriptioon</mat-label>
+                      <textarea matInput formControlName="blog_info_2" class="form-control bcontent" placeholder="Ex. It makes me feel..." rows="10" cols="50"></textarea>
+                    </mat-form-field>
+                </div>
+            
+            
+            <div class="jio">
+            <div style="margin-top: 30px;"> 
+              <form  [formGroup]="hasblogform">
+                <div class="example-form-fields">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Add Hashtag</mat-label>
+                    <input matInput placeholder="Add hashtag without # Symbol"  formControlName="has" (keyup.enter)="addhas()">
+                  </mat-form-field>
+                </div>
+
+              </form>
+        
+            <table class="table table-hover text-center">
+              <thead>
+                <tr>
+                  <th scope="col">Hashtag's</th>
+                  <th scope="col" colspan="2">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of hasarray; index as userno">
+                  <td>#{{item}}</td>
+                  <td><button  mat-raised-button color="warn" (click)="removelist(userno)">Remove</button></td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+            <button mat-raised-button  color="primary" type="submit" [disabled]="!userblogform.valid">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  

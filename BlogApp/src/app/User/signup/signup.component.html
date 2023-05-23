@@ -1,0 +1,82 @@
+<div class="center">
+    <div class="container mb3" *ngIf="OTPACTIVE">
+        <div mat-dialog-content class="example-container">
+            <h3> OTP sent to this mail address {{EMAIL}}</h3>
+            <form [formGroup]="otpForm">
+                <div class="example-form-fields">
+                    <mat-form-field appearance="outline">
+                        <mat-label>OTP</mat-label>
+                        <input matInput placeholder="OTP" formControlName="OTP">
+                    </mat-form-field>
+                </div>
+            </form>
+        </div>
+        <div mat-dialog-actions [align]="'center'">
+            <button class="btt" mat-raised-button color="primary" (click)="onotpvarification()">Submit</button>
+            <button class="btt" mat-raised-button color="primary" [disabled]="ClickOn" (click)="resendOTP()">
+                {{display}}</button>
+        </div>
+    </div>
+    <div class="container mb3" *ngIf="SIGACTIVE">
+        <div class="container-fluid">
+            <h1 mat-dialog-title class="font-effect-outline">SignUp Form</h1>
+            <div mat-dialog-content class="example-container">
+                <form [formGroup]="UserForm">
+                    <div class="example-form-fields">
+                    <mat-form-field appearance="outline">
+                        <mat-label>SurName</mat-label>
+                        <input matInput placeholder="Surname" formControlName="Surname">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>First Name</mat-label>
+                        <input matInput placeholder="FirstName" formControlName="FirstName">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput placeholder="Last Name" formControlName="LastName">
+                    </mat-form-field>
+                </div>
+                    <div class="example-form-fields">
+                    <mat-form-field color="accent" appearance="outline">
+                        <mat-label>Birthdate</mat-label>
+                        <input formControlName="Birthdate" matInput [matDatepicker]="picker1" >
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email id" formControlName="Email">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Mobile Number</mat-label>
+                        <input matInput placeholder="9876543210" formControlName="MobileNumber">
+                    </mat-form-field>
+            
+            
+                    </div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                    <mat-radio-group formControlName="Gender" class="example-radio-group">
+                        <mat-label> Gender </mat-label>
+                        <mat-radio-button class="example-radio-button" *ngFor="let fre of gender" [value]="fre">
+                            {{fre}}
+                        </mat-radio-button>
+                
+                    </mat-radio-group>
+                    
+                </form>
+            </div>
+            <div  mat-dialog-actions>
+                <button mat-raised-button color="primary" (click)="addUser()">{{actionBtn}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
